@@ -1,12 +1,12 @@
-"""initial
+"""
 
-Revision ID: 12bb364728e9
+Revision ID: f9871c858a1d
 Revises: 
-Create Date: 2019-03-02 16:18:02.583047
+Create Date: 2019-03-02 17:44:21.741627
 
 """
 # revision identifiers, used by Alembic.
-revision = '12bb364728e9'
+revision = 'f9871c858a1d'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,6 +29,7 @@ def upgrade():
     sa.Column('password', sa.String(), nullable=False),
     sa.Column('first_name', sa.String(), nullable=True),
     sa.Column('last_name', sa.String(), nullable=True),
+    sa.Column('token', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('article',

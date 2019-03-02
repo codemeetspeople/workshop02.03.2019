@@ -27,7 +27,7 @@ DEFAULT_DIALECT.use_native_hstore = True
 
 
 class ConnectionManager:
-    """Synctool database connection manager."""
+    """Database connection manager."""
 
     __slots__ = ('_connection_class', '_loop', '_dsn', '_connection', '_statement_cache_size')
 

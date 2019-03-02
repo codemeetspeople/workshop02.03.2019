@@ -5,6 +5,8 @@ test: false
 host: localhost
 application: api
 
+salt: # Should be defined in settings.local.yaml
+
 api:
     host: 0.0.0.0
     port: 8080

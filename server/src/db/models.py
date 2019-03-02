@@ -29,6 +29,9 @@ __all__ = (
     'NotFoundError',
     'ModelBase',
     'Base',
+    'User',
+    'Category',
+    'Article'
 )
 
 
@@ -102,6 +105,7 @@ class User(Base):
     password = Column(String, nullable=False)
     first_name = Column(String, nullable=True)
     last_name = Column(String, nullable=True)
+    token = Column(String, nullable=True)
 
     articles = relationship("Article", back_populates="user")
 
