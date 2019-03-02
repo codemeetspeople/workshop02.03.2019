@@ -1,0 +1,1 @@
+"""Synctool database migrations."""

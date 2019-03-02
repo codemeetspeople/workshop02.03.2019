@@ -1,0 +1,90 @@
+debug: &debug false
+verbose: false
+test: false
+
+host: localhost
+application: api
+
+api:
+    host: 0.0.0.0
+    port: 8080
+
+redis:
+    host: localhost
+    port: 6379
+    db:
+        cache: 0
+
+# db.master.dsn should be redefined in settings.local.yaml
+db:
+    master:
+        dsn: &postgres_dsn postgresql://postgres:postgres@localhost/postgres
+        pool_size: 23
+        max_overflow: 2
+
+admin:
+    host: 0.0.0.0
+    port: 8003
+    SQLALCHEMY_TRACK_MODIFICATIONS: True
+    SQLALCHEMY_DATABASE_URI: *postgres_dsn
+    SECRET_KEY: # Should be defined in settings.local.yaml
+
+logging_dir: logs
+logging:
+    version: 1
+    disable_existing_loggers: false
+    formatters:
+        standard:
+            format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+    filters:
+            require_debug_false:
+                '()': 'commons.logging.RequireDebugFalse'
+            require_debug_true:
+                '()': 'commons.logging.RequireDebugTrue'
+            require_max_warning:
+                '()': 'commons.logging.LevelFilter'
+                'low': 0
+                'high': 30
+            require_max_debug:
+                '()': 'commons.logging.LevelFilter'
+                'low': 0
+                'high': 10
+    handlers:
+        debug:
+            level: DEBUG
+            filters: [require_debug_true, require_max_debug]
+            class: logging.StreamHandler
+            formatter: standard
+            stream: ext://sys.stdout
+        console:
+            level: INFO
+            class: logging.StreamHandler
+            formatter: standard
+            stream: ext://sys.stdout
+        api_debug:
+            level: DEBUG
+            class: 'logging.handlers.RotatingFileHandler'
+            formatter: standard
+            filename: api_debug.log
+            filters: [require_debug_true, require_max_debug]
+        api_info:
+            level: INFO
+            class: 'logging.handlers.RotatingFileHandler'
+            formatter: standard
+            filename: api_debug.log
+            filters: [require_max_warning]
+        api_error:
+            level: ERROR
+            class: 'logging.handlers.RotatingFileHandler'
+            formatter: standard
+            filename: api_error.log
+
+    loggers:
+        '':
+            handlers: [console, debug]
+            level: true
+            propagate: true
+        'api':
+            handlers: [api_debug, api_info, api_error]
+            level: true
+            propagate: true
