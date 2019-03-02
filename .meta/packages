@@ -1,0 +1,6 @@
+aiohttp==3.5.4
+ipdb==0.11
+ipython==7.3.0
+requests==2.21.0
+ujson==1.35
+uvloop==0.12.1
