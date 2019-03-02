@@ -3,7 +3,7 @@
 import asyncio
 
 from aiohttp import web
-from sqlalchemy import select, update, and_
+from sqlalchemy import select, update
 
 from db.models import User
 from api.helpers import json_response
