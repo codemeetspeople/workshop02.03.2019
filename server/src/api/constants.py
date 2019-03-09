@@ -1,4 +1,4 @@
-"""Synctool public API constants module."""
+"""Public API constants module."""
 
 from aiohttp.web_exceptions import (
     HTTPUnsupportedMediaType,
@@ -25,7 +25,7 @@ class ContentType(Constants):
 
 
 class Errors(Constants):
-    """Synctool public API errors."""
+    """Public API errors."""
 
     WRONG_CONTENT_TYPE = Error(
         4152, HTTPUnsupportedMediaType, 'Wrong {}. Should be one of: {{content_types}}'.format(Headers.CONTENT_TYPE)
@@ -38,7 +38,7 @@ class Errors(Constants):
 
 
 class Status(Constants):
-    """Synctool pubslic API response statuses."""
+    """Public API response statuses."""
 
     OK = 'ok'
     ERROR = 'error'

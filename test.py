@@ -46,6 +46,12 @@ async def call_url_async():
     if data and data['status'] == 'ok':
         func()
 
+
+async def dummy_example():
+    for _ in range(100):
+        await call_url_async()
+
+
 async def case_3():
     await asyncio.gather(*[call_url_async() for _ in range(100)])
 
@@ -73,3 +79,18 @@ def case_6():
         pool.apply_async(call_url)
     pool.close()
     pool.join()
+
+
+# case_1()
+# case_6()
+# case_2()
+
+# loop = asyncio.get_event_loop()
+# loop.run_until_complete(dummy_example())
+
+# asyncio.run(case_3())
+# asyncio.run(case_5())
+asyncio.run(case_4())
+
+
+print(func.call_count)

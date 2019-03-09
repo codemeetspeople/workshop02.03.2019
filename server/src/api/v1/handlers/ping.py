@@ -1,4 +1,4 @@
-"""Synctool Public API PING module."""
+"""Public API PING module."""
 
 from api.helpers import json_response
 from api.constants import Status

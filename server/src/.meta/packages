@@ -17,3 +17,4 @@ flask==1.0.2
 flask-admin==1.5.3
 flask-sqlalchemy==2.3.2
 pyjwt==1.7.1
+asyncio-ipython-magic==0.0.3

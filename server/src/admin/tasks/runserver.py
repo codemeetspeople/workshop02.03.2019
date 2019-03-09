@@ -7,12 +7,7 @@ from config import settings
 from admin.app import app
 
 
-@task(
-    help={
-        'bind': f'Bind to custom address or/and port. Default: {settings.api.host}:{settings.api.port}',
-        'develop': 'Running server in dev mode. Default: False'
-    }
-)
+@task
 def runserver(ctx, bind=None, develop=False):
     """Start Admin server."""
     if bind:

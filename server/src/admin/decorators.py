@@ -1,4 +1,4 @@
-"""Synctool Admin decorators module."""
+"""Admin decorators module."""
 
 
 def register_view(group):

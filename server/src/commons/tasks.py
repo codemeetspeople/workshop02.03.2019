@@ -9,4 +9,4 @@ def shell(ctx):
 
     from IPython import start_ipython
 
-    start_ipython(argv=[])
+    start_ipython(argv=[], extensions=['asynciomagic'])

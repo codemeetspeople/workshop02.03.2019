@@ -1,4 +1,4 @@
-"""Synctool API useful utils module."""
+"""API useful utils module."""
 
 import ujson
 from aiohttp import web

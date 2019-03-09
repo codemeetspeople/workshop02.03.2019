@@ -1,4 +1,4 @@
-"""Synctool Admin Application module."""
+"""Admin Application module."""
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
