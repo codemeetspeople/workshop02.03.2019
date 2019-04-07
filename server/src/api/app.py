@@ -6,7 +6,7 @@ from aiohttp import web
 from db import db_manager
 from api.middlewares import error_middleware, auth_middleware
 from api.v1.handlers import (
-    ping, auth, register
+    ping, auth, register, check
 )
 
 
@@ -63,6 +63,7 @@ def add_routes(app):
     app.router.add_get('/api/v1/ping/', ping.ping)
     app.router.add_post('/api/v1/login/', auth.auth)
     app.router.add_post('/api/v1/register/', register.register)
+    app.router.add_get('/api/v1/check/', check.check)
 
 
 app = init_server()

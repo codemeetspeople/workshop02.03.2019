@@ -3,6 +3,7 @@ import pytest
 from api.constants import Status
 
 
+@pytest.mark.asyncio
 @pytest.mark.parametrize('api_method', [
     '/api/v1/ping',
     '/api/v1/ping/'

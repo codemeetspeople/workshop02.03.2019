@@ -50,5 +50,6 @@ class UnauthorizedEndpoints(Constants):
     ROUTES = [
         'ping/', 'ping',
         'login/', 'login',
-        'register/', 'register'
+        'register/', 'register',
+        'check/', 'check'
     ]

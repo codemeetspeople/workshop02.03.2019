@@ -22,6 +22,7 @@ def user(db, user_factory):
         db.query(User).delete()
 
 
+@pytest.mark.asyncio
 @pytest.mark.parametrize('api_method', [
     '/api/v1/login',
     '/api/v1/login/'
